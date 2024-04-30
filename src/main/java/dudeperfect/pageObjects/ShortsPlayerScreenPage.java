@@ -3,7 +3,6 @@ package dudeperfect.pageObjects;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -16,13 +15,13 @@ public class ShortsPlayerScreenPage {
     }
 
     @AndroidFindBy(id = "tv.kidoodle.android.dudeperfect:id/searchBtn")
-    private WebElement searchButton;
+    private WebElement searchIcon;
 
     @AndroidFindBy(id="tv.kidoodle.android.dudeperfect:id/videoTitle")
-    private WebElement videoTitle;
+    private WebElement shortsVideoTitle;
 
     @AndroidFindBy(id ="tv.kidoodle.android.dudeperfect:id/poundBtn")
-    private WebElement poundButton;
+    private WebElement poundIcon;
 
     @AndroidFindBy(id ="tv.kidoodle.android.dudeperfect:id/bottomNavigationView")
     private WebElement bottomNavMenu;
@@ -44,4 +43,36 @@ public class ShortsPlayerScreenPage {
 
     @AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"tv.kidoodle.android.dudeperfect:id/navbarItemText\" and @text=\"Profile\"]")
     private WebElement profileText;
+
+    public boolean searchButton(){
+        return searchIcon.isDisplayed();
+    }
+    public boolean shortsTitle(){
+        return shortsVideoTitle.isDisplayed();
+    }
+    public boolean poundButton(){
+        return poundIcon.isDisplayed();
+    }
+    public void clickPoundButton(){
+        poundIcon.click();
+    }
+    public boolean homeButton(){
+        return homeIcon.isDisplayed();
+    }
+    public String homeButtonText(){
+        return homeText.getText();
+    }
+    public boolean shortsButton(){
+        return shortsIcon.isDisplayed();
+    }
+    public String shortsButtonText(){
+        return shortsText.getText();
+    }
+    public boolean profileButton(){
+        return profileIcon.isDisplayed();
+    }
+    public String profileButtonText(){
+        return profileText.getText();
+    }
+
 }
