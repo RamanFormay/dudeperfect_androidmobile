@@ -15,15 +15,12 @@ import java.util.Locale;
 
 public class BirthdayScreenPage {
     AndroidDriver driver;
-    Date date;
     public BirthdayScreenPage(AndroidDriver driver){
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-         date = new Date();
-
     }
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
-    String currentDate = dateFormat.format(date);
+
+//    SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
     @AndroidFindBy(id="tv.kidoodle.android.dudeperfect:id/title")
     private WebElement birthdayTitleText;
 
