@@ -34,7 +34,7 @@ public class BaseTest {
         options.setAppPackage("tv.kidoodle.android.dudeperfect");
         options.setAppActivity("tv.kidoodle.android.ui.MainActivity");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
     }
 
     @AfterClass

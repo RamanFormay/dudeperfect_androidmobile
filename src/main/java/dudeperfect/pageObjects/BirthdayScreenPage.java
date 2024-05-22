@@ -6,11 +6,13 @@ package dudeperfect.pageObjects;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import java.util.Locale;
 
 public class BirthdayScreenPage {
@@ -20,7 +22,6 @@ public class BirthdayScreenPage {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-//    SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
     @AndroidFindBy(id="tv.kidoodle.android.dudeperfect:id/title")
     private WebElement birthdayTitleText;
 
@@ -29,10 +30,6 @@ public class BirthdayScreenPage {
 
     @AndroidFindBy (xpath="//android.widget.LinearLayout[@resource-id=\"android:id/parentPanel\"]")
     private WebElement dateModal;
-
-
-    @AndroidFindBy (xpath="//android.view.View[@content-desc=\"29 April 2024\"]")
-    private WebElement dateSelection;
 
     @AndroidFindBy (xpath="//android.widget.Button[@resource-id=\"android:id/button1\"]")
     private WebElement okModalButton;
@@ -74,22 +71,25 @@ public class BirthdayScreenPage {
     public String getInputBoxText(){
         return inputField.getText();
     }
+
     public void clickInputBox(){
         inputField.click();
     }
+
     public Boolean dateModalOpened(){
         return dateModal.isEnabled();
     }
 
-//    public String getTodayDate(){
-//        Date date = new Date();
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
-//        return dateFormat.format(date);
-//
-//    }
-    public void selectDate(){
-        dateSelection.click();
+    public void selectDate(String date) {
+        WebElement dateEl =  driver.findElement(By.xpath("//android.view.View[@content-desc='" + date + "']"));
+        dateEl.click();
     }
+    public String getTodayDate(){
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.ENGLISH);
+        return today.format(formatter);
+    }
+
     public void clickOkButton(){
         okModalButton.click();
     }
@@ -101,8 +101,10 @@ public class BirthdayScreenPage {
         return textHint.getText();
     }
     public String getErrorHintText(){
+
         return errorTextHint.getText();
     }
+
     public String getPrivacyPolicy(){
         return tosText1.getText()+" "+tosText2.getText()+" "+"\n"+tosText3.getText()+" "+tosText4.getText();
     }

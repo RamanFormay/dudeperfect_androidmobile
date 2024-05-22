@@ -44,9 +44,10 @@ public class dpMobile_BirthdayScreen extends BaseTest{
 
     @Test(priority=4)
     public void BirthdayScreen_PositiveFlowValidation() throws InterruptedException {
+        birthdayScreenPage = new BirthdayScreenPage(driver);
         birthdayScreenPage.clickInputBox();
-        birthdayScreenPage.dateModalOpened();
-        birthdayScreenPage.selectDate();
+        String todayDate=birthdayScreenPage.getTodayDate();
+        birthdayScreenPage.selectDate(todayDate);
         birthdayScreenPage.clickOkButton();
         birthdayScreenPage.selectCheckbox();
         birthdayScreenPage.clickContinueButton();
