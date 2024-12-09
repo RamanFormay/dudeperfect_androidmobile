@@ -3,9 +3,8 @@ package dudeperfect;
 import dudeperfect.pageObjects.SplashScreenPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testUtils.BaseTest;
 
-public class dpMobile_SplashScreen extends BaseTest {
+public class dpMobile_SplashScreen extends BaseTest{
 
     SplashScreenPage splashScreenPage;
 

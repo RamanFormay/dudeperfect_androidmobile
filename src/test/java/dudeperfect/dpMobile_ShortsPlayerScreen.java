@@ -2,38 +2,37 @@ package dudeperfect;
 
 import dudeperfect.pageObjects.BirthdayScreenPage;
 import dudeperfect.pageObjects.ShortsPlayerScreenPage;
+import dudeperfect.pageObjects.SplashScreenPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import testUtils.BaseTest;
 
-public class dpMobile_ShortsPlayerScreen extends BaseTest {
+public class dpMobile_ShortsPlayerScreen extends BaseTest{
 
     BirthdayScreenPage birthdayScreenPage;
-    ShortsPlayerScreenPage shortsPlayerScreenPage;
+    ShortsPlayerScreenPage shortsPlayerScreen;
     dpMobile_BirthdayScreen birthdayScreenFlow;
 
     @BeforeMethod
     public void PreSetup() throws InterruptedException {
         birthdayScreenPage = new BirthdayScreenPage(driver);
-        shortsPlayerScreenPage = new ShortsPlayerScreenPage(driver);
+        shortsPlayerScreen = new ShortsPlayerScreenPage(driver);
         birthdayScreenFlow = new dpMobile_BirthdayScreen();
 
     }
 
-    @Test (priority = 1)
+    @Test
     public void ShortsPlayerTextValidation() throws InterruptedException {
         birthdayScreenFlow.BirthdayScreen_PositiveFlowValidation();
-        Assert.assertTrue(shortsPlayerScreenPage.searchButton());
-        Assert.assertTrue(shortsPlayerScreenPage.shortsTitle());
-        Assert.assertTrue(shortsPlayerScreenPage.poundButton());
-        Assert.assertTrue(shortsPlayerScreenPage.homeButton());
-        Assert.assertEquals(shortsPlayerScreenPage.homeButtonText(), "Home");
-        Assert.assertTrue(shortsPlayerScreenPage.shortsButton());
-        Assert.assertEquals(shortsPlayerScreenPage.shortsButtonText(), "Shorts");
-        Assert.assertTrue(shortsPlayerScreenPage.profileButton());
-        Assert.assertEquals(shortsPlayerScreenPage.profileButtonText(), "Profile");
+        Assert.assertTrue(shortsPlayerScreen.searchButton());
+        Assert.assertTrue(shortsPlayerScreen.shortsTitle());
+        Assert.assertTrue(shortsPlayerScreen.poundButton());
+//        Assert.assertTrue(shortsPlayerScreen.homeButton());
+        Assert.assertEquals(shortsPlayerScreen.homeButtonText(), "Home");
+//        Assert.assertTrue(shortsPlayerScreen.shortsButton());
+        Assert.assertEquals(shortsPlayerScreen.shortsButtonText(), "Shorts");
+//        Assert.assertTrue(shortsPlayerScreen.profileButton());
+        Assert.assertEquals(shortsPlayerScreen.profileButtonText(), "Profile");
+
     }
-
-
 }

@@ -1,23 +1,18 @@
 package dudeperfect;
 
+
 import dudeperfect.pageObjects.BirthdayScreenPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import testUtils.BaseTest;
 
-public class dpMobile_BirthdayScreen extends BaseTest {
+
+public class dpMobile_BirthdayScreen extends BaseTest{
+
     BirthdayScreenPage birthdayScreenPage;
     @BeforeMethod
     public void PreSetup() throws InterruptedException {
-            try {
-                if (driver == null) {
-                    throw new RuntimeException("WebDriver is not initialized.");
-                }
-                birthdayScreenPage = new BirthdayScreenPage(driver);
-            } catch (Exception e) {
-                throw new RuntimeException("Failed to initialize BirthdayScreenPage", e);
-            }
+        birthdayScreenPage = new BirthdayScreenPage(driver);
     }
 
     @Test(priority=1)
@@ -49,12 +44,13 @@ public class dpMobile_BirthdayScreen extends BaseTest {
 
     @Test(priority=4)
     public void BirthdayScreen_PositiveFlowValidation() throws InterruptedException {
+        birthdayScreenPage = new BirthdayScreenPage(driver);
         birthdayScreenPage.clickInputBox();
         String todayDate=birthdayScreenPage.getTodayDate();
-        System.out.println(todayDate);
         birthdayScreenPage.selectDate(todayDate);
         birthdayScreenPage.clickOkButton();
         birthdayScreenPage.selectCheckbox();
         birthdayScreenPage.clickContinueButton();
+
     }
 }

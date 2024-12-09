@@ -9,10 +9,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -84,13 +81,12 @@ public class BirthdayScreenPage {
     }
 
     public void selectDate(String date) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement dateEl =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//android.view.View[@content-desc='" + date + "']")));
+        WebElement dateEl =  driver.findElement(By.xpath("//android.view.View[@content-desc='" + date + "']"));
         dateEl.click();
     }
     public String getTodayDate(){
         LocalDate today = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ENGLISH);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.ENGLISH);
         return today.format(formatter);
     }
 

@@ -1,4 +1,4 @@
-package testUtils;
+package dudeperfect;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -6,6 +6,7 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -15,7 +16,6 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
     public static AppiumDriverLocalService service;
     public static AndroidDriver driver;
-
     //    Appium start
     @BeforeClass
     public static void open() throws MalformedURLException {
@@ -27,7 +27,7 @@ public class BaseTest {
 //        setting the desired capabilites
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("Raman");
-        options.setUdid("emulator-5554");
+        options.setUdid("R9WTA13MTGA");
         options.setPlatformVersion("12");
 
 //        setting the app package and activity

@@ -32,23 +32,14 @@ public class ShortsPlayerScreenPage {
     @AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"tv.kidoodle.android.dudeperfect:id/navbarItemText\" and @text=\"Home\"]")
     private WebElement homeText;
 
-    @AndroidFindBy(xpath ="//android.view.ViewGroup[@resource-id=\"tv.kidoodle.android.dudeperfect:id/navbarItemHome\"]")
-    private WebElement home;
-
     @AndroidFindBy(xpath="//android.widget.ImageView[@resource-id=\"tv.kidoodle.android.dudeperfect:id/navbarItemIcon\"])[2]")
     private WebElement shortsIcon;
 
     @AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"tv.kidoodle.android.dudeperfect:id/navbarItemText\" and @text=\"Shorts\"]")
     private WebElement shortsText;
 
-    @AndroidFindBy(xpath ="//android.view.ViewGroup[@resource-id=\"tv.kidoodle.android.dudeperfect:id/navbarItemShorts\"]")
-    private WebElement shorts;
-
     @AndroidFindBy(xpath="//android.widget.ImageView[@resource-id=\"tv.kidoodle.android.dudeperfect:id/navbarItemIcon\"])[3]")
     private WebElement profileIcon;
-
-    @AndroidFindBy(xpath ="//android.view.ViewGroup[@resource-id=\"tv.kidoodle.android.dudeperfect:id/navbarItemSign\"]")
-    private WebElement profile;
 
     @AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"tv.kidoodle.android.dudeperfect:id/navbarItemText\" and @text=\"Profile\"]")
     private WebElement profileText;
@@ -65,35 +56,23 @@ public class ShortsPlayerScreenPage {
     public void clickPoundButton(){
         poundIcon.click();
     }
-    public boolean homeIcon(){
+    public boolean homeButton(){
         return homeIcon.isDisplayed();
     }
     public String homeButtonText(){
         return homeText.getText();
     }
-    public boolean homeButton(){
-        return home.isDisplayed();
-    }
-    public void clickHomeButton(){
-        home.click();
-    }
-    public boolean shortsTcon(){
+    public boolean shortsButton(){
         return shortsIcon.isDisplayed();
     }
     public String shortsButtonText(){
         return shortsText.getText();
     }
-    public boolean shortsButton(){
-        return shorts.isDisplayed();
-    }
-    public boolean profileIcon(){
+    public boolean profileButton(){
         return profileIcon.isDisplayed();
     }
     public String profileButtonText(){
         return profileText.getText();
-    }
-    public boolean profileButton(){
-        return profile.isDisplayed();
     }
 
 }
