@@ -139,4 +139,4 @@ google-services.json
 *.hprof
 
 #reports
-reports/
+reports
