@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="testUtils.Listeners"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="Birthday Screen Validation">
+        <classes>
+            <class name="dudeperfect.dpMobile_BirthdayScreen">
+                <methods>
+                    <include name = "PreSetup"/>
+                    <include name="BirthdayScreen_TextValidations"/>
+                    <include name="BirthdayScreen_ErrorTextValidation"/>
+                    <include name="BirthdayScreen_ErrorTextValidation_2"/>
+                    <include name="BirthdayScreen_PositiveFlowValidation"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
